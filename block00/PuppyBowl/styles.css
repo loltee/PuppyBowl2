@@ -1,0 +1,410 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: white;
+  background-image: linear-gradient(180deg, white 60%, black 40%);
+}
+/* Heading puppy bowl */
+.box {
+  position: relative;
+  width: 200px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2% 40%;
+  font-family: "cursive", "Brush Script MT";
+}
+
+.box h1 {
+  color: white;
+  font-size: 2.4em;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 10px #ff0077, 0 0 20px #ff0077;
+}
+
+.lightbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 90%;
+  border-radius: 10px;
+  background: white;
+  z-index: 2;
+  box-shadow: 0 0 10px #4400ff, 0 0 20px #4400ff, 0 0 40px #4400ff,
+    0 0 80px #4400ff, 0 0 120px #4400ff;
+  animation: animatelightbar 2.5s linear infinite;
+}
+
+@keyframes animatelightbar {
+  0%,
+  5% {
+    transform: scaleY(0) translateX(0);
+  }
+  10% {
+    transform: scaleY(1) translateX(0);
+  }
+  90% {
+    transform: scaleY(1) translateX(calc(200px - 4px));
+  }
+  95%,
+  100% {
+    transform: scaleY(0) translateX(calc(200px - 4px));
+  }
+}
+
+.topLayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  animation: animatetopLayer 5s linear infinite;
+}
+
+@keyframes animatetopLayer {
+  0%,
+  2.5% {
+    transform: translateX(0);
+  }
+  5% {
+    transform: translateX(0);
+  }
+  45% {
+    transform: translateX(100%);
+  }
+  47.5%,
+  50% {
+    transform: translateX(100%);
+  }
+  50.001%,
+  52.5% {
+    transform: translateX(-100%);
+  }
+  55% {
+    transform: translateX(-100%);
+  }
+  95% {
+    transform: translateX(0%);
+  }
+  97.5%,
+  100% {
+    transform: translateX(0%);
+  }
+}
+/* body plyer card */
+#all-players-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: space-around;
+  position: relative;
+  margin-left: 25%;
+  gap: 5px;
+  width: 50%;
+  height: 65%;
+}
+#all-players-container .playerCard:hover {
+  transform: translate(-1.5%, -1.5%);
+}
+
+.playerCard {
+  background-color: whitesmoke;
+  box-shadow: 2px 2px 22px #0066ff;
+  border-radius: 8px;
+  margin: 20px;
+  width: 250px;
+  padding: 15px;
+  height: 80%;
+  text-align: center;
+}
+.playerCard h2 {
+  text-shadow: 0 0 1px #00b3ff;
+  color: black;
+  line-height: 1.5;
+  text-transform: uppercase;
+  font-size: large;
+  font-family: "consolas";
+}
+.playerCard img {
+  width: 95%;
+  height: 60%;
+  border-radius: 5px;
+  margin-bottom: 1px;
+  margin-top: 5%;
+}
+/* buttons */
+.details-button,
+.remove-button {
+  margin-left: 5%;
+  margin-right: 5%;
+  color: black;
+  background-color: whitesmoke;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  transition: 0.2s;
+  font-family: "consolas";
+  overflow: hidden;
+  font-size: 14.1px;
+  text-transform: uppercase;
+}
+.details-button span {
+  position: absolute;
+  display: block;
+}
+.details-button span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #2196f3);
+  animation: btn-anim-1 1s linear infinite;
+}
+
+@keyframes btn-anim-1 {
+  0% {
+    left: -100%;
+  }
+  50%,
+  100% {
+    left: 100%;
+  }
+}
+.details-button span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #2196f3);
+  animation: btn-anim-2 1s linear infinite;
+  animation-delay: 0.25s;
+}
+
+@keyframes btn-anim-2 {
+  0% {
+    top: -100%;
+  }
+  50%,
+  100% {
+    top: 100%;
+  }
+}
+
+.details-button span:nth-child(3) {
+  right: -100%;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(270deg, transparent, #2196f3);
+  animation: btn-anim-3 1s linear infinite;
+}
+
+@keyframes btn-anim-3 {
+  0% {
+    right: -100%;
+  }
+  50%,
+  100% {
+    right: 100%;
+  }
+}
+
+.details-button span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  height: 100%;
+  width: 2px;
+  background: linear-gradient(180deg, transparent, #2196f3);
+  animation: btn-anim-4 1s linear infinite;
+  animation-delay: 0.75s;
+}
+
+@keyframes btn-anim-4 {
+  0% {
+    bottom: -100%;
+  }
+  50%,
+  100% {
+    bottom: 100%;
+  }
+}
+
+.remove-button:hover {
+  background-color: rgb(235, 69, 69);
+  color: white;
+}
+
+/* detail card popup */
+#popup {
+  position: fixed;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 70%;
+  padding: 20px;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+  background: #fff;
+  z-index: 2;
+}
+
+/* detail card */
+.detailCard .content {
+  position: relative;
+  max-width: 800px;
+}
+/* detail image */
+.detailCard .content img {
+  max-width: 100%;
+  display: block;
+}
+/* detail heading name */
+.detailCard h2 {
+  text-shadow: 0 0 1px #00b3ff;
+  color: black;
+  line-height: 1.5;
+  text-align: center;
+  margin-bottom: 10%;
+  text-transform: uppercase;
+  font-size: medium;
+}
+/* details  */
+.detailCard p {
+  text-shadow: 0 0 10px #4400ff, 0 0 20px #4400ff;
+  color: black;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: left;
+  margin-top: 5%;
+}
+
+/* close button in the popup card */
+.close-button {
+  margin: 1px 90%;
+  border-radius: 5px;
+  width: 10%;
+  height: 10%;
+  font-size: 12px;
+}
+
+.close-button:hover {
+  background-color: red;
+}
+
+/* form for new player */
+#new-player-form {
+  width: 400px;
+  padding: 40px;
+  background-color: black;
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px #00b3ff;
+  border-radius: 10px;
+  font-family: sans-serif;
+  position: relative;
+  margin-left: 35%;
+  margin-top: 5%;
+}
+/* new player form heading */
+#new-player-form h2 {
+  color: white;
+  margin: 0 0 30px;
+  padding: 0;
+  text-align: left;
+}
+
+#new-player-form input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: white;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid white;
+  outline: none;
+  background-color: transparent;
+}
+
+#new-player-form button {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: white;
+  background-color: black;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: 0.5s;
+  border-width: 0;
+  margin-top: 30px;
+  margin-left: 100px;
+  cursor: pointer;
+}
+#new-player-form button:hover {
+  color: white;
+  background: #2196f3;
+  box-shadow: 0 0 10px #2196f3, 0 0 30px #2196f3;
+  transition-delay: 0.5s;
+}
+
+#new-player-form button span {
+  position: absolute;
+  display: block;
+}
+#new-player-form button span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #2196f3);
+}
+#new-player-form button:hover span:nth-child(1) {
+  left: 100%;
+  transition: 0.5s;
+}
+#new-player-form button span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #2196f3);
+}
+#new-player-form button:hover span:nth-child(3) {
+  right: 100%;
+  transition: 0.5s;
+  transition-delay: 0.25s;
+}
+#new-player-form button span:nth-child(2) {
+  right: 0;
+  top: -100%;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #2196f3);
+}
+#new-player-form button:hover span:nth-child(2) {
+  top: 100%;
+  transition: 0.5s;
+  transition-delay: 0.125s;
+}
+#new-player-form button span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #2196f3);
+}
+#new-player-form button:hover span:nth-child(4) {
+  bottom: 100%;
+  transition: 0.5s;
+  transition-delay: 0.375s;
+}
